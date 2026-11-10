@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827"><title>Nexo Medical · Podología</title>
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/light-clinical.css"><link rel="stylesheet" href="/admin.css"><link rel="stylesheet" href="/record.css"><link rel="stylesheet" href="/clinical-demo.css"><link rel="stylesheet" href="/module-layout.css"><link rel="stylesheet" href="/operations.css"><link rel="stylesheet" href="/modern-ui.css"><link rel="stylesheet" href="/google-calendar.css"><!-- Se conserva la estética original de Nexo Medical --><link rel="stylesheet" href="/operations.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brandmark">✚</div><div><strong>NEXO</strong><small>PODOLOGÍA</small></div></div>
+    <label class="search"><span>⌕</span><input id="globalSearch" placeholder="Buscar..."><kbd>Ctrl K</kbd></label>
+    <nav class="navigation">
+<button class="navitem active" data-view="general"><span>▦</span> GENERAL <b>›</b></button>
+<button class="navitem" data-view="patients"><span>♙</span> PACIENTES <b>›</b></button>
+<button class="navitem" data-view="care"><span>♧</span> ATENCIÓN <b>›</b></button>
+<button class="navitem" data-view="communication"><span>▤</span> COMUNICACIÓN <b>›</b></button>
+<button class="navitem" data-view="management"><span>☷</span> GESTIÓN <b>›</b></button>
+</nav>
+    <div class="sidebar-bottom"><span class="avatar">NM</span><div><strong>Espacio clínico</strong><small>Entorno de configuración</small></div><span class="online"></span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">NEXO MEDICAL / <span id="crumb">GENERAL</span></div><h1 id="pageTitle">Panel general</h1></div><div class="top-actions"><span id="today"></span><button class="assistant-button" id="openAssistant">✧ Asistente clínico</button><button class="primary" id="quickAction">＋ Nuevo paciente</button></div></header>
+    <section id="view-general" class="view">
+      <div class="welcome"><div><span class="kicker">ATENCIÓN PODOLÓGICA</span><h2>La atención podológica, conectada.</h2><p>Organiza valoraciones del pie, diagnósticos, procedimientos y reportes de salud.</p></div><div class="welcome-symbol">✳</div></div>
+      <div class="stats">
+        <article class="stat"><span>Pacientes activos</span><strong id="statPatients">0</strong><small>Registros en el sistema</small></article>
+        <article class="stat"><span>Citas de hoy</span><strong id="statAppointments">0</strong><small>Agenda asistencial</small></article>
+        <article class="stat"><span>Planes activos</span><strong id="statPlans">0</strong><small>Procesos de intervención</small></article>
+        <article class="stat"><span>Evoluciones pendientes</span><strong id="statNotes">0</strong><small>Por revisar y firmar</small></article>
+      </div>
+      <div class="content-grid">
+        <section class="panel"><div class="panel-head"><div><h3>Agenda de hoy</h3><p>Próximas atenciones programadas</p></div><button class="text-button" data-goto="agenda">Ver agenda →</button></div><div id="todayAppointments" class="empty">Todavía no hay citas registradas.</div></section>
+        <section class="panel"><div class="panel-head"><div><h3>Actividad reciente</h3><p>Últimos movimientos clínicos</p></div></div><div class="empty">La actividad aparecerá cuando se registren atenciones.</div></section>
+      </div>
+      <div class="notice"><span>ⓘ</span><div><strong>Entorno inicial</strong><p>Estamos configurando el sistema. No ingreses información real de pacientes hasta completar autenticación, permisos, auditoría y revisión de seguridad.</p></div></div>
+    </section>
+    <section id="view-patients" class="view hidden">
+      <div class="section-head"><div><h2>Pacientes</h2><p>Registro y seguimiento de personas atendidas.</p></div><button class="primary" data-action="new-patient">＋ Registrar paciente</button></div>
+      <div class="panel"><div class="filters"><input id="patientSearch" placeholder="Buscar por nombre o documento..."><select id="patientStatus"><option value="">Todos los estados</option><option value="active">Activo</option><option value="inactive">Inactivo</option><option value="discharged">Alta</option></select></div><div id="patientsTable" class="table-wrap"><div class="empty">Cargando pacientes...</div></div></div>
+    </section>
+    <section id="view-history" class="view hidden">
+      <div class="section-head"><div><h2>Historia clínica podológica</h2><p>Registro cronológico de la atención, anamnesis, examen, impresión diagnóstica y plan.</p></div><button class="primary" id="newHistory">＋ Nueva atención</button></div>
+      <div class="notice"><span>ⓘ</span><div><strong>Registro clínico reservado</strong><p>La historia clínica es privada, obligatoria y sometida a reserva. Este módulo está en fase de validación; no ingreses datos reales hasta completar autenticación, firma, permisos, custodia y revisión jurídica.</p></div></div>
+      <form id="historyForm" class="panel hidden">
+        <div class="panel-head"><div><h3>Nueva nota de atención podológica</h3><p>Formato operativo basado en la nota que utiliza actualmente el consultorio. Los campos no suministrados se dejan sin diligenciar.</p></div><button type="button" class="text-button" id="cancelHistory">Cancelar</button></div>
+        <div class="form-grid">
+          <label>Paciente<select name="patient_id" id="historyPatient" required><option value="">Seleccionar paciente</option></select></label>
+          <label>Fecha de atención<input type="date" name="attended_date" required></label>
+          <label>Tipo de atención<select name="encounter_type"><option value="quiropodia">Quiropodia</option><option value="initial">Valoración inicial</option><option value="follow_up">Control / seguimiento</option><option value="other">Otra atención</option></select></label>
+          <label>Sede de atención<input name="site_name" placeholder="Ej. Rionegro"></label>
+          <label>Hora de entrada<input type="time" name="entry_time"></label><label>Hora de salida<input type="time" name="exit_time"></label>
+          <label>Responsable del procedimiento<input name="procedure_responsible" placeholder="Nombre de quien realizó la atención"></label><label>Persona que recibe al paciente<input name="received_by"></label>
+          <label class="full">Motivo de consulta<textarea name="reason_for_consultation" placeholder="Diligenciar únicamente si está documentado"></textarea></label>
+          <label class="full">Códigos diagnósticos<textarea name="diagnoses_text" placeholder="Ej. B351 - L851O. Validar posteriormente en el catálogo oficial."></textarea></label>
+          <label>Procedimiento realizado<input name="procedure_name" placeholder="Ej. Quiropodia"></label><label>Código interno del procedimiento<input name="procedure_code" placeholder="Ej. 013"></label>
+          <label class="full">Conclusiones y plan de manejo<textarea name="conclusions_plan" rows="4" placeholder="Ej. Hoy quiropodia 013 por [responsable]. Quiropodia en 3 semanas."></textarea></label>
+          <label class="full">Observaciones administrativas<textarea name="administrative_notes" placeholder="Ej. Paciente atendido en sede Rionegro en ausencia del responsable habitual."></textarea></label>
+          <label class="full">Información clínica adicional<textarea name="clinical_analysis" placeholder="Solo registrar información efectivamente obtenida durante la atención."></textarea></label>
+          <label class="full">Recomendaciones / seguimiento<textarea name="follow_up" placeholder="Próxima atención, intervalo o recomendaciones documentadas."></textarea></label>
+          <div class="full form-section"><h3>Anamnesis y antecedentes</h3></div>
+          <label class="full">Enfermedad actual<textarea name="current_illness" rows="3"></textarea></label>
+          <label>Antecedentes personales<textarea name="personal_history_text" rows="2"></textarea></label>
+          <label>Antecedentes familiares<textarea name="family_history" rows="2"></textarea></label>
+          <label>Medicamentos actuales<textarea name="medication_history" rows="2"></textarea></label>
+          <label>Alergias<textarea name="allergy_history" rows="2"></textarea></label>
+          <label class="full">Revisión por sistemas<textarea name="systems_review_text" rows="2"></textarea></label>
+          <label>Escala de dolor (0–10)<input type="number" name="pain_scale" min="0" max="10"></label>
+          <label>Lateralidad<select name="laterality"><option value="">No especificada</option><option>Derecha</option><option>Izquierda</option><option>Bilateral</option></select></label>
+          <div class="full form-section"><h3>Valoración podológica</h3><p>Registra únicamente hallazgos observados o referidos.</p></div>
+          <label>Piel<textarea name="skin_exam_text" rows="3" placeholder="Integridad, coloración, temperatura, hidratación, hiperqueratosis..."></textarea></label>
+          <label>Uñas<textarea name="nail_exam_text" rows="3" placeholder="Color, forma, grosor, integridad, alteraciones..."></textarea></label>
+          <label>Espacios interdigitales<textarea name="interdigital_exam_text" rows="3"></textarea></label>
+          <label>Estado vascular<textarea name="vascular_exam_text" rows="3" placeholder="Pulsos, llenado capilar, temperatura, edema..."></textarea></label>
+          <label>Estado neurológico<textarea name="neurological_exam_text" rows="3" placeholder="Sensibilidad, pruebas realizadas y resultados..."></textarea></label>
+          <label>Biomecánica<textarea name="biomechanical_exam_text" rows="3" placeholder="Apoyo, alineación, movilidad, marcha..."></textarea></label>
+          <label>Calzado<textarea name="footwear_exam_text" rows="2"></textarea></label>
+          <label>Heridas y lesiones<textarea name="wounds_exam_text" rows="2"></textarea></label>
+          <label class="full">Evaluación funcional<textarea name="functional_exam" rows="2"></textarea></label>
+          <div class="full form-section"><h3>Impresión clínica y conducta</h3></div>
+          <label class="full">Plan de tratamiento<textarea name="treatment_plan" rows="3"></textarea></label>
+          <label class="full">Recomendaciones<textarea name="recommendations" rows="3"></textarea></label>
+          <label class="full">Remisiones / interconsultas<textarea name="referrals" rows="2"></textarea></label>
+          <div class="notice full"><span>ⓘ</span><div><strong>Registro fiel a la fuente</strong><p>Los campos sin información se conservarán como “No documentado”. No se generan hallazgos ni antecedentes automáticamente.</p></div></div>
+        </div>
+        <div class="modal-actions"><button type="submit" class="primary">Guardar borrador de atención</button></div>
+      </form>
+      <div class="panel"><div class="panel-head"><div><h3>Atenciones registradas</h3><p>Historial cronológico por paciente.</p></div></div><div id="historyTable" class="table-wrap"><div class="empty">Cargando historias clínicas...</div></div></div>
+    </section>
+    <section id="view-podiatry" class="view hidden">
+      <div class="section-head"><div><h2>Atención podológica</h2><p>Valoración integral del pie y seguimiento clínico.</p></div><button class="primary" data-action="new-assessment">＋ Nueva valoración</button></div>
+      <div class="placeholder-grid"><article class="panel"><span class="tile-icon">♧</span><h3>Valoración del pie</h3><p>Piel, uñas, espacios interdigitales, estado vascular y neurológico, biomecánica, calzado y lesiones.</p><span class="tag">Modelo clínico preparado</span></article><article class="panel"><span class="tile-icon">◉</span><h3>Riesgo podológico</h3><p>Registro de dolor, hallazgos, signos de alarma, nivel de riesgo y remisión cuando corresponda.</p><span class="tag">Modelo clínico preparado</span></article></div>
+      <div class="panel"><div class="panel-head"><div><h3>Historial de valoraciones</h3><p>Registros por paciente y profesional.</p></div></div><div class="empty">Selecciona un paciente para consultar sus valoraciones.</div></div>
+    </section>
+    <section id="view-coding" class="view hidden">
+      <div class="section-head"><div><h2>Codificación y RIPS</h2><p>Catálogos versionados y preparación de reportes.</p></div></div>
+      <div class="placeholder-grid"><article class="panel"><h3>CIE-10 · Diagnósticos</h3><p>Clasificación de patologías y diagnósticos clínicos del paciente.</p><span class="tag">Catálogo por cargar</span></article><article class="panel"><h3>CUPS · Procedimientos</h3><p>Codificación oficial de los procedimientos realizados en la atención podológica.</p><span class="tag">Versión 2026</span></article><article class="panel"><h3>CIIU · Actividad económica</h3><p>Clasificación de la actividad del prestador, no de las patologías.</p><span class="tag">Revisión 5 A.C.</span></article><article class="panel"><h3>RIPS · Reportes</h3><p>Preparación de datos, validación local, envío y seguimiento del CUV conforme al estándar vigente.</p><span class="tag warning">Integración pendiente</span></article></div>
+      <div class="notice"><span>ⓘ</span><div><strong>Normativa parametrizable</strong><p>Los códigos no se inventan ni se fijan manualmente: se importarán desde los catálogos oficiales y se conservará la versión normativa usada en cada atención.</p></div></div>
+    </section>
+    <section id="view-agenda" class="view hidden">
+      <div class="section-head"><div><h2>Agenda</h2><p>Programación de sesiones y valoraciones.</p></div><button class="primary" data-action="new-appointment">＋ Programar cita</button></div>
+      <div class="panel"><div id="agendaList" class="empty">No hay citas programadas.</div></div>
+    </section>
+    <section id="view-operations" class="view hidden"><div class="section-head"><div><h2>Operación clínica</h2><p>Recepción, agenda, asignaciones, equipo y seguimiento · entorno de demostración</p></div><span class="tag">DATOS FICTICIOS</span></div><div id="operationsRoot"></div></section><section id="view-communication" class="view hidden">
+<div class="section-head"><div><h2>Centro de comunicación</h2><p>Conexión de Nexo Medical con WhatsApp Business y el bot de atención.</p></div><span class="tag warning">Integración no conectada</span></div>
+<div class="content-grid">
+<article class="panel"><div class="panel-head"><div><h3>WhatsApp Business Platform</h3><p>Canal para mensajes entrantes y salientes del consultorio.</p></div><span class="pill">Desconectado</span></div>
+<div class="stack-form"><label>Proveedor de conexión<select id="waProvider"><option value="cloud">Meta WhatsApp Cloud API</option><option value="bsp">Proveedor BSP (Twilio / 360dialog / otro)</option></select></label>
+<label>Phone Number ID<input id="waPhoneId" placeholder="Identificador del número de WhatsApp"></label><label>WhatsApp Business Account ID<input id="waWabaId" placeholder="Identificador de la cuenta WABA"></label><label>Token de acceso<input id="waToken" type="password" placeholder="Se configurará de forma segura en servidor"></label><label>Webhook Verify Token<input id="waVerify" type="password" placeholder="Token de verificación"></label>
+<div class="notice"><span>ⓘ</span><div><strong>Credenciales protegidas</strong><p>Esta interfaz es de configuración. No pegues tokens reales aquí todavía: falta implementar almacenamiento secreto en servidor, webhook firmado y validación de Meta.</p></div></div><button class="primary" id="waSave" type="button">Guardar configuración pendiente</button><small id="waStatus">Estado: sin conexión configurada.</small></div></article>
+<article class="panel"><h3>Bot de atención</h3><p>Define cómo responderá el asistente cuando un paciente escriba al WhatsApp del consultorio.</p>
+<div class="stack-form"><label>Nombre del bot<input id="botName" value="Asistente Nexo"></label><label>Mensaje de bienvenida<textarea id="botWelcome">¡Hola! Te damos la bienvenida a Nexo Medical. ¿En qué podemos ayudarte?</textarea></label><label>Opciones iniciales<textarea id="botMenu">1. Agendar una cita
+2. Confirmar o cancelar una cita
+3. Consultar horarios y ubicación
+4. Hablar con recepción</textarea></label><label>Horario de atención<input id="botHours" value="Lunes a viernes, 8:00 a. m. – 5:00 p. m."></label><label class="check-row"><input id="botHuman" type="checkbox" checked> Escalar a una persona cuando el bot no pueda resolver</label><label class="check-row"><input id="botReminders" type="checkbox"> Habilitar recordatorios de citas (requiere conexión)</label><button class="primary" id="botSave" type="button">Guardar diseño conversacional</button><small id="botStatus">Configuración local de demostración; aún no envía mensajes.</small></div></article></div>
+<div class="panel"><div class="panel-head"><div><h3>Flujo de mensajes</h3><p>Arquitectura prevista para la integración.</p></div></div><div class="wa-flow"><div>WhatsApp del paciente</div><b>↓</b><div>Webhook seguro de Meta / BSP</div><b>↓</b><div>Bot Nexo · reglas e IA</div><b>↓</b><div>Agenda · recepción · atención humana</div><b>↓</b><div>Respuesta por WhatsApp</div></div></div>
+</section>
+    <section id="view-billing" class="view hidden">
+      <div class="section-head"><div><h2>Facturación</h2><p>Servicios, cuentas de cobro y pagos.</p></div></div>
+      <div class="placeholder-grid"><article class="panel"><span class="tile-icon">$</span><h3>Servicios y tarifas</h3><p>Catálogo de servicios de rehabilitación y tarifas institucionales.</p><span class="tag">Por construir</span></article><article class="panel"><span class="tile-icon">▤</span><h3>Cuentas y pagos</h3><p>Seguimiento administrativo y cartera.</p><span class="tag">Por construir</span></article></div>
+    </section>
+    <section id="view-analysis" class="view hidden">
+      <div class="section-head"><div><h2>Análisis</h2><p>Indicadores de operación y seguimiento terapéutico.</p></div></div>
+      <div class="placeholder-grid"><article class="panel"><h3>Indicadores asistenciales</h3><p>Asistencia, cancelaciones, sesiones y tiempos de atención.</p></article><article class="panel"><h3>Resultados terapéuticos</h3><p>Seguimiento de objetivos y evolución funcional.</p></article></div>
+    </section>
+    <section id="view-admin" class="view hidden">
+      <div class="section-head"><div><h2>Administración</h2><p>Configuración institucional y profesionales.</p></div></div>
+      <div class="notice"><span>ⓘ</span><div><strong>Configuración progresiva del prestador</strong><p>Registra primero al profesional independiente. Si posteriormente se constituye una IPS, podrás agregar sedes, equipo humano y servicios. Este módulo organiza información; no concede habilitación ni reemplaza el trámite REPS.</p></div></div>
+      <div class="admin-grid">
+       <article class="panel"><h3>Prestador de servicios</h3><p>Identificación jurídica y estado del proceso.</p>
+        <form id="providerForm" class="stack-form">
+         <label>Nombre o razón social<input name="legal_name" required></label><label>Nombre comercial<input name="trade_name"></label>
+         <div class="form-grid"><label>Tipo de prestador<select name="provider_kind"><option value="independent">Profesional independiente</option><option value="ips">IPS</option><option value="other">Otro</option></select></label><label>Tipo de persona<select name="legal_type"><option value="natural_person">Persona natural</option><option value="legal_entity">Persona jurídica</option></select></label></div>
+         <div class="form-grid"><label>Tipo documento<input name="document_type" placeholder="CC / NIT"></label><label>Número documento<input name="document_number"></label></div>
+         <div class="form-grid"><label>DV<input name="dv"></label><label>Teléfono<input name="phone"></label></div>
+         <label>Correo<input type="email" name="email"></label><label>Dirección principal<input name="address"></label>
+         <div class="form-grid"><label>Código departamento<input name="department_code"></label><label>Código municipio<input name="municipality_code"></label></div>
+         <button class="primary" type="submit">Guardar prestador</button>
+        </form>
+       </article>
+       <article class="panel"><h3>Sedes y servicios</h3><p>Ubicación física, modalidad y capacidad instalada.</p>
+        <form id="siteForm" class="stack-form"><label>Prestador<select name="organization_id" id="siteOrganization" required></select></label><label>Nombre de sede<input name="name" required></label><label>Dirección<input name="address"></label><label>Modalidad<select name="modality"><option value="intramural">Intramural</option><option value="extramural">Extramural</option><option value="telemedicina">Telemedicina</option></select></label><button class="secondary" type="submit">Agregar sede</button></form>
+        <div class="divider-line"></div>
+        <form id="serviceForm" class="stack-form"><label>Sede<select name="site_id" id="serviceSite" required></select></label><label>Nombre del servicio<input name="service_name" required></label><div class="form-grid"><label>Complejidad<input name="complexity" placeholder="Según REPS"></label><label>Capacidad instalada<input name="installed_capacity" type="number" min="1"></label></div><label>Modalidad<input name="modality" placeholder="Intramural / extramural"></label><button class="secondary" type="submit">Agregar servicio</button></form>
+       </article>
+      </div>
+      <article class="panel"><div class="section-head"><div><h3>Estado del prestador y sedes</h3><p>Control interno de configuración. No equivale a habilitación oficial.</p></div></div><div id="providerSetupList" class="table-wrap"><div class="empty">Cargando configuración...</div></div></article>
+    </section>
+  </main>
+</div>
+<div id="patientModal" class="modal hidden"><div class="modal-card"><div class="modal-head"><div><span class="eyebrow">REGISTRO CLÍNICO</span><h2>Nuevo paciente</h2></div><button class="close" data-close>×</button></div>
+<form id="patientForm"><div class="form-grid">
+<label>Tipo de documento<select name="document_type"><option value="CC">Cédula de ciudadanía</option><option value="CE">Cédula de extranjería</option><option value="TI">Tarjeta de identidad</option><option value="PA">Pasaporte</option></select></label>
+<label>Número de documento<input name="document_number" required></label>
+<label>Primer nombre<input name="first_name" required></label><label>Segundo nombre<input name="middle_name"></label>
+<label>Primer apellido<input name="last_name" required></label><label>Segundo apellido<input name="second_last_name"></label>
+<label>Fecha de nacimiento<input type="date" name="birth_date"></label><label>Teléfono<input name="phone"></label>
+<label>Correo electrónico<input type="email" name="email"></label><label>Estado<select name="status"><option value="active">Activo</option><option value="inactive">Inactivo</option></select></label>
+<label class="full consent"><input type="checkbox" name="consent_data_processing" required> Confirmo que existe autorización para el tratamiento de datos personales.</label>
+</div><div class="modal-actions"><button type="button" class="secondary" data-close>Cancelar</button><button class="primary" type="submit">Guardar paciente</button></div></form></div></div>
+<div id="assistantPanel" class="assistant-panel hidden"><div class="assistant-head"><div><span class="ai-mark">✧</span><div><strong>Asistente clínico</strong><small>Apoyo documental · modo de prueba</small></div></div><button class="close" id="closeAssistant">×</button></div><div class="assistant-warning">No ingreses nombres, documentos ni datos identificables de pacientes. El conector de IA aún no está habilitado.</div><div class="assistant-content"><h3>¿En qué puedo ayudarte?</h3><p>Podremos organizar notas clínicas, estructurar evoluciones y revisar la integridad de la documentación.</p><div class="suggestion">Organizar una nota de evolución</div><div class="suggestion">Estructurar objetivos terapéuticos</div><div class="suggestion">Revisar campos incompletos de una valoración</div></div><div class="assistant-compose"><textarea id="assistantPrompt" placeholder="Describe una tarea sin datos personales..."></textarea><button id="assistantSend" class="primary">Enviar</button></div></div>
+<div id="patientRecordModal" class="modal hidden"><div class="modal-card record-card"><div class="modal-head"><div><span class="eyebrow">EXPEDIENTE DEL PACIENTE</span><h2 id="recordPatientName">Historia clínica</h2><p id="recordPatientMeta"></p></div><button class="close" id="closePatientRecord">×</button></div><div id="patientRecordContent" class="record-content"></div></div></div>
+<div id="toast" class="toast"></div><script src="/app.js"></script><script src="/operations.js"></script><script src="/restructure.js"></script>
+</body></html>

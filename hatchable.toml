@@ -1,0 +1,5 @@
+name = "Nexo Medical"
+tagline = "Gestión clínica inteligente para rehabilitación"
+
+# El acceso de usuarios y el control de invitaciones se habilitarán
+# en la siguiente etapa, antes de almacenar información clínica real.

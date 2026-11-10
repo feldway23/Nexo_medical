@@ -1,0 +1,11 @@
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS site_name TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS entry_time TIME;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS exit_time TIME;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS procedure_responsible TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS received_by TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS procedure_name TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS procedure_code TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS conclusions_plan TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS administrative_notes TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS diagnoses_text TEXT;
+ALTER TABLE podiatry_clinical_histories ADD COLUMN IF NOT EXISTS attended_date DATE;

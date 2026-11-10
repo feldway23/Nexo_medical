@@ -1,0 +1,108 @@
+.gcal-shell{background:#fff;border:1px solid #e1e9f0;border-radius:16px;overflow:hidden;box-shadow:0 8px 26px rgba(29,58,82,.06)}.gcal-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 22px;border-bottom:1px solid #e7edf3}.gcal-title{display:flex;align-items:center;gap:12px}.gcal-calendar-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#eaf4fb;color:#176ba8;font-size:23px}.gcal-title h3{margin:0!important;color:#203e5b!important;font-size:18px!important}.gcal-title small{display:block;color:#7c8da0;margin-top:3px;text-transform:capitalize}.gcal-controls{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.gcal-controls [data-act=prev],.gcal-controls [data-act=next]{font-size:21px;padding:5px 12px!important}.gcal-controls #opCalMode{border:1px solid #dbe5ed;border-radius:9px;padding:10px 12px;color:#36546c;background:#fff}.gcal-date-line{display:flex;align-items:center;justify-content:space-between;padding:15px 21px;color:#304d66}.gcal-date-line strong{text-transform:capitalize;font-size:14px}.gcal-date-line span{font-size:11px;color:#8191a2}.gcal-time-scroll{overflow:auto;max-height:650px}.gcal-time-grid{min-width:780px;display:grid;grid-template-columns:65px repeat(7,minmax(95px,1fr))}.gcal-time-grid.one-day{grid-template-columns:65px minmax(260px,1fr)}.gcal-time-head{display:contents}.gcal-time-head>div{position:sticky;top:0;z-index:2;background:#fff;border-bottom:1px solid #e5edf3;min-height:55px}.gcal-day-head{display:flex;align-items:center;justify-content:center;gap:7px;border-left:1px solid #edf1f5}.gcal-day-head small{color:#77899c;font-size:11px;text-transform:uppercase}.gcal-day-head strong{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-size:14px;color:#334e67}.gcal-day-head.today strong{background:#176ba8;color:#fff}.gcal-hour-row{display:contents}.gcal-hour-label{height:64px;padding:0 9px;text-align:right;transform:translateY(-8px);font-size:10px;color:#8796a6;background:#fff}.gcal-hour-cell{height:64px;border-top:1px solid #edf1f5;border-left:1px solid #edf1f5;position:relative;cursor:pointer}.gcal-hour-cell:hover{background:#f8fbfe}.gcal-event{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:calc(100% - 8px);margin:3px 4px;padding:6px 7px;border:0;border-left:3px solid var(--event-color);border-radius:6px;background:#eef5fb;color:#24445e;text-align:left;cursor:pointer;position:relative;z-index:1;overflow:hidden}.gcal-event b{font-size:10px;color:var(--event-color)}.gcal-event span{font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.gcal-event small{font-size:9px;color:#647a8e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.gcal-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid #e7edf3}.gcal-weekday{text-align:center;padding:11px 4px;color:#788a9d;font-size:10px;font-weight:700;text-transform:uppercase;border-bottom:1px solid #e7edf3}.gcal-month-cell{min-height:116px;border-right:1px solid #edf1f5;border-bottom:1px solid #edf1f5;padding:6px 4px;overflow:hidden}.gcal-month-cell.muted{background:#fafbfd}.gcal-date{display:grid;place-items:center;width:26px;height:26px;margin-bottom:4px;border-radius:50%;font-size:11px;color:#425c74}.gcal-month-cell.today .gcal-date{background:#176ba8;color:#fff}.gcal-month-cell .gcal-event{margin:3px 0;width:100%;padding:4px 5px}.gcal-month-cell .gcal-event small{display:none}.gcal-more{font-size:9px;color:#176ba8}.gcal-create{display:grid;grid-template-columns:repeat(3,minmax(130px,1fr));gap:11px;padding:16px 20px;background:#f5f9fc;border-bottom:1px solid #e4edf4}.gcal-create .op-field{min-width:0}.gcal-create .primary,.gcal-create .secondary{align-self:end}.gcal-legend{display:flex;align-items:center;gap:17px;flex-wrap:wrap;padding:13px 20px;color:#718499;font-size:10px}.gcal-legend span{display:flex;align-items:center;gap:6px}.gcal-legend i{width:8px;height:8px;border-radius:50%;background:var(--dot)}.gcal-legend small{margin-left:auto;color:#91a0ae}@media(max-width:760px){.gcal-top{align-items:flex-start;flex-direction:column;padding:15px}.gcal-controls{width:100%}.gcal-controls .primary{margin-left:auto}.gcal-date-line{padding:12px 15px}.gcal-month-cell{min-height:80px}.gcal-create{grid-template-columns:1fr 1fr}.gcal-legend small{margin-left:0}}@media(max-width:480px){.gcal-create{grid-template-columns:1fr}.gcal-month-cell{min-height:62px}.gcal-month-cell .gcal-event span{font-size:8px}.gcal-month-cell .gcal-event b{font-size:8px}}.gcal-layout{display:grid;grid-template-columns:225px minmax(0,1fr);border-top:1px solid #e8eef3;min-height:590px}.gcal-sidebar{padding:17px 15px;border-right:1px solid #e7edf3;background:#fbfdff}.gcal-mini-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:#294b68;text-transform:capitalize;font-size:12px}.gcal-mini-head span{display:flex;gap:4px}.gcal-mini-head button{border:0;background:transparent;color:#58728a;padding:3px 7px;font-size:18px;cursor:pointer}.gcal-mini-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:22px}.gcal-mini-grid b{text-align:center;color:#91a0ae;font-size:9px;padding:5px 0}.gcal-mini-grid button,.gcal-mini-grid i{display:grid;place-items:center;height:26px;border:0;background:transparent;border-radius:50%;font-size:10px;color:#536a80;cursor:pointer}.gcal-mini-grid button:hover{background:#eaf3fa}.gcal-mini-grid button.today{border:1px solid #2878bd;color:#176ba8}.gcal-mini-grid button.selected{background:#176ba8;color:#fff}.gcal-filter-title{font-size:10px;font-weight:700;color:#58728a;margin:15px 0 9px;text-transform:uppercase;letter-spacing:.5px}.gcal-filter{display:flex;align-items:center;gap:8px;padding:6px 0;color:#526a80;font-size:11px;cursor:pointer}.gcal-filter input{accent-color:#176ba8;width:13px;height:13px}.gcal-filter i{width:8px;height:8px;border-radius:50%;background:var(--dot)}.gcal-sidebar select{width:100%;padding:8px;border:1px solid #dce6ee;border-radius:8px;background:#fff;color:#526a80;font-size:11px}.gcal-main{min-width:0;overflow:auto}.gcal-main .gcal-time-scroll{max-height:660px}.gcal-main .gcal-month-grid{border-top:0}.gcal-main .gcal-time-grid{min-width:650px}.gcal-main .gcal-month-cell{min-height:105px}.gcal-main .gcal-date{border:0;background:transparent;cursor:pointer}.gcal-main .gcal-date:hover{background:#eaf3fa}@media(max-width:800px){.gcal-layout{grid-template-columns:175px minmax(0,1fr)}.gcal-sidebar{padding:12px 10px}.gcal-main .gcal-time-grid{min-width:610px}}@media(max-width:600px){.gcal-layout{grid-template-columns:1fr}.gcal-sidebar{border-right:0;border-bottom:1px solid #e7edf3;display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.gcal-mini-head,.gcal-mini-grid{grid-column:1/-1}.gcal-mini-grid{max-width:300px}.gcal-filter-title:nth-of-type(2){grid-column:1/-1}.gcal-sidebar select{grid-column:1/-1}.gcal-main .gcal-time-grid{min-width:650px}.gcal-date-line{gap:10px;align-items:flex-start}.gcal-date-line span{white-space:nowrap}}
+/* Legibilidad y aprovechamiento del espacio */
+#operationsRoot .op-panel{padding:12px!important}
+#operationsRoot .op-tabs{margin:8px 0 12px}
+.gcal-shell{width:100%;border-radius:12px}
+.gcal-top{padding:14px 18px;min-height:68px}
+.gcal-date-line{padding:10px 18px;background:#f8fbfd;border-bottom:1px solid #e8eef3}
+.gcal-date-line strong{font-size:15px;color:#203e5b}
+.gcal-date-line span{font-size:12px;color:#637b90}
+.gcal-layout{grid-template-columns:205px minmax(0,1fr);min-height:690px}
+.gcal-sidebar{padding:18px 14px}
+.gcal-main{width:100%;overflow-x:auto}
+.gcal-main .gcal-time-scroll{max-height: min(74vh,820px);overflow:auto}
+.gcal-main .gcal-time-grid{width:100%;min-width:0;grid-template-columns:54px repeat(7,minmax(0,1fr))}
+.gcal-main .gcal-time-grid.one-day{grid-template-columns:58px minmax(0,1fr)}
+.gcal-time-head>div{min-height:64px}
+.gcal-day-head{gap:5px}
+.gcal-day-head small{font-size:12px;font-weight:700;color:#60778c}
+.gcal-day-head strong{width:34px;height:34px;font-size:15px}
+.gcal-hour-label{height:76px;font-size:11px;color:#60778c;padding-right:10px}
+.gcal-hour-cell{height:76px;border-color:#e5ecf2}
+.gcal-event{width:calc(100% - 10px);margin:4px 5px;padding:7px 8px;gap:3px;border-left-width:4px;border-radius:7px}
+.gcal-event b{font-size:11px;font-weight:800}
+.gcal-event span{font-size:11px;line-height:1.25;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.gcal-event small{font-size:10px;line-height:1.2;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.gcal-weekday{font-size:11px;padding:13px 5px;color:#526b80;background:#f8fbfd}
+.gcal-main .gcal-month-cell{min-height:130px;padding:7px}
+.gcal-main .gcal-month-cell .gcal-event{padding:5px 6px}
+.gcal-main .gcal-month-cell .gcal-event span{font-size:10px}
+.gcal-main .gcal-month-cell .gcal-event b{font-size:10px}
+.gcal-main .gcal-month-cell .gcal-event small{display:none}
+.gcal-mini-grid button{height:29px;font-size:11px}
+.gcal-filter{font-size:12px;padding:8px 0}
+.gcal-filter-title{font-size:11px}
+.gcal-legend{font-size:11px;padding:11px 18px;background:#fbfdff}
+.gcal-create{grid-template-columns:repeat(3,minmax(150px,1fr));padding:14px 18px}
+@media(max-width:1050px){
+ .gcal-layout{grid-template-columns:180px minmax(0,1fr)}
+ .gcal-main .gcal-time-grid{min-width:700px}
+}
+@media(max-width:700px){
+ #operationsRoot .op-panel{padding:8px!important}
+ .gcal-top{padding:13px;gap:12px}
+ .gcal-layout{grid-template-columns:1fr;min-height:0}
+ .gcal-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;padding:12px}
+ .gcal-mini-head,.gcal-mini-grid{grid-column:1/-1}
+ .gcal-mini-grid{max-width:330px}
+ .gcal-main .gcal-time-grid{min-width:760px}
+ .gcal-main .gcal-time-scroll{max-height:68vh}
+ .gcal-main .gcal-month-cell{min-height:100px;padding:4px}
+ .gcal-create{grid-template-columns:1fr 1fr}
+}
+@media(max-width:460px){
+ .gcal-controls{gap:5px}
+ .gcal-controls .primary{margin-left:0}
+ .gcal-create{grid-template-columns:1fr}
+ .gcal-main .gcal-time-grid{min-width:720px}
+}
+/* Agenda en pantalla completa inspirada en la referencia clínica */
+#view-care.agenda-focus>.section-head,#view-care.agenda-focus>#careTabs{display:none!important}
+#view-care.agenda-focus{margin-top:-8px}
+#view-care.agenda-focus #carePanel{width:100%;max-width:none}
+#view-care.agenda-focus #operationsRoot{width:100%;max-width:none;margin:0;padding:0;background:transparent;border:0;box-shadow:none}
+#view-care.agenda-focus #operationsRoot>.op-toolbar,#view-care.agenda-focus #operationsRoot>.op-tabs{display:none!important}
+#view-care.agenda-focus #opContent{width:100%}
+#view-care.agenda-focus .gcal-shell{width:100%;min-height:calc(100vh - 150px);border:1px solid #dce5ed;border-radius:8px;box-shadow:0 2px 9px rgba(29,58,82,.045)}
+#view-care.agenda-focus .gcal-top{min-height:58px;padding:9px 15px;background:#fff}
+#view-care.agenda-focus .gcal-title{gap:9px}
+#view-care.agenda-focus .gcal-calendar-icon{width:34px;height:34px;border-radius:50%;font-size:18px;background:#e7f3fc}
+#view-care.agenda-focus .gcal-title h3{font-size:15px!important}
+#view-care.agenda-focus .gcal-title small{font-size:10px}
+#view-care.agenda-focus .gcal-controls{gap:5px}
+#view-care.agenda-focus .gcal-controls button{min-height:32px;padding:6px 10px!important}
+#view-care.agenda-focus .gcal-controls #opCalMode{padding:7px 10px}
+#view-care.agenda-focus .gcal-date-line{padding:7px 15px;background:#fff;border-bottom:0}
+#view-care.agenda-focus .gcal-layout{grid-template-columns:178px minmax(0,1fr);min-height:calc(100vh - 250px);border-top:1px solid #e8edf2}
+#view-care.agenda-focus .gcal-sidebar{padding:12px 12px;background:#fff;border-right:1px solid #e3e9ef}
+#view-care.agenda-focus .gcal-mini-head{font-size:11px;margin-bottom:7px}
+#view-care.agenda-focus .gcal-mini-grid{gap:1px;margin-bottom:13px}
+#view-care.agenda-focus .gcal-mini-grid button,#view-care.agenda-focus .gcal-mini-grid i{height:23px;font-size:10px}
+#view-care.agenda-focus .gcal-filter-title{margin:11px 0 6px;font-size:9px}
+#view-care.agenda-focus .gcal-filter{font-size:10px;padding:5px 0}
+#view-care.agenda-focus .gcal-main{overflow:auto;background:#fff}
+#view-care.agenda-focus .gcal-main .gcal-time-scroll{max-height:calc(100vh - 260px);min-height:570px}
+#view-care.agenda-focus .gcal-main .gcal-time-grid{min-width:760px;grid-template-columns:48px repeat(7,minmax(0,1fr))}
+#view-care.agenda-focus .gcal-time-head>div{min-height:52px}
+#view-care.agenda-focus .gcal-day-head{flex-direction:row;gap:5px}
+#view-care.agenda-focus .gcal-day-head small{font-size:10px}
+#view-care.agenda-focus .gcal-day-head strong{width:27px;height:27px;font-size:12px}
+#view-care.agenda-focus .gcal-hour-label{height:61px;font-size:10px;padding-right:7px}
+#view-care.agenda-focus .gcal-hour-cell{height:61px}
+#view-care.agenda-focus .gcal-event{margin:3px;width:calc(100% - 6px);padding:5px 6px;border-radius:3px;gap:2px}
+#view-care.agenda-focus .gcal-event b{font-size:9px}
+#view-care.agenda-focus .gcal-event span{font-size:9px;line-height:1.15}
+#view-care.agenda-focus .gcal-event small{font-size:8px;line-height:1.1}
+#view-care.agenda-focus .gcal-legend{padding:7px 13px}
+.app-shell:has(#view-care.agenda-focus) .sidebar{width:220px;padding:20px 12px}
+.app-shell:has(#view-care.agenda-focus) .main{margin-left:220px;padding:12px 15px 25px;max-width:none}
+.app-shell:has(#view-care.agenda-focus) .topbar{margin-bottom:10px}
+.app-shell:has(#view-care.agenda-focus) .topbar h1{font-size:19px}
+@media(max-width:800px){
+ .app-shell:has(#view-care.agenda-focus) .sidebar{width:64px;padding:16px 7px}
+ .app-shell:has(#view-care.agenda-focus) .main{margin-left:64px;padding:10px}
+ #view-care.agenda-focus .gcal-layout{grid-template-columns:1fr}
+ #view-care.agenda-focus .gcal-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+ #view-care.agenda-focus .gcal-mini-head,#view-care.agenda-focus .gcal-mini-grid{grid-column:1/-1}
+ #view-care.agenda-focus .gcal-main .gcal-time-grid{min-width:760px}
+}

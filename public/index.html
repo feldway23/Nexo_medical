@@ -2,8 +2,18 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101827"><title>Nexo Medical · Podología</title>
-<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/light-clinical.css"><link rel="stylesheet" href="/admin.css"><link rel="stylesheet" href="/record.css"><link rel="stylesheet" href="/clinical-demo.css"><link rel="stylesheet" href="/module-layout.css"><link rel="stylesheet" href="/operations.css"><link rel="stylesheet" href="/modern-ui.css"><link rel="stylesheet" href="/google-calendar.css"><!-- Se conserva la estética original de Nexo Medical --><link rel="stylesheet" href="/operations.css">
+<meta name="theme-color" content="#5b4ce0"><title>Nexo Medical · Podología</title>
+<!-- Base estructural -->
+<link rel="stylesheet" href="/styles.css">
+<!-- Estilos por módulo -->
+<link rel="stylesheet" href="/admin.css">
+<link rel="stylesheet" href="/record.css">
+<link rel="stylesheet" href="/clinical-demo.css">
+<link rel="stylesheet" href="/module-layout.css">
+<link rel="stylesheet" href="/operations.css">
+<link rel="stylesheet" href="/google-calendar.css">
+<!-- Tema visual (debe cargarse al final para prevalecer) -->
+<link rel="stylesheet" href="/theme-vivid.css">
 </head>
 <body>
 <div class="app-shell">
@@ -94,7 +104,7 @@
     </section>
     <section id="view-coding" class="view hidden">
       <div class="section-head"><div><h2>Codificación y RIPS</h2><p>Catálogos versionados y preparación de reportes.</p></div></div>
-      <div class="placeholder-grid"><article class="panel"><h3>CIE-10 · Diagnósticos</h3><p>Clasificación de patologías y diagnósticos clínicos del paciente.</p><span class="tag">Catálogo por cargar</span></article><article class="panel"><h3>CUPS · Procedimientos</h3><p>Codificación oficial de los procedimientos realizados en la atención podológica.</p><span class="tag">Versión 2026</span></article><article class="panel"><h3>CIIU · Actividad económica</h3><p>Clasificación de la actividad del prestador, no de las patologías.</p><span class="tag">Revisión 5 A.C.</span></article><article class="panel"><h3>RIPS · Reportes</h3><p>Preparación de datos, validación local, envío y seguimiento del CUV conforme al estándar vigente.</p><span class="tag warning">Integración pendiente</span></article></div>
+      <div class="placeholder-grid"><article class="panel"><h3>CIE-10 · Diagnósticos</h3><p>Clasificación de patologías y diagnósticos clínicos del paciente.</p><div class="coding-tools"><input id="codingCie10Search" placeholder="Buscar CIE-10 (código o diagnóstico)..."></div><div id="codingCie10"><div class="empty">Cargando catálogo CIE-10…</div></div></article><article class="panel"><h3>CUPS · Procedimientos</h3><p>Codificación oficial de los procedimientos realizados en la atención podológica.</p><span class="tag">Versión 2026</span></article><article class="panel"><h3>CIIU · Actividad económica</h3><p>Clasificación de la actividad del prestador, no de las patologías.</p><span class="tag">Revisión 5 A.C.</span></article><article class="panel"><h3>RIPS · Reportes</h3><p>Preparación de datos, validación local, envío y seguimiento del CUV conforme al estándar vigente.</p><span class="tag warning">Integración pendiente</span></article></div>
       <div class="notice"><span>ⓘ</span><div><strong>Normativa parametrizable</strong><p>Los códigos no se inventan ni se fijan manualmente: se importarán desde los catálogos oficiales y se conservará la versión normativa usada en cada atención.</p></div></div>
     </section>
     <section id="view-agenda" class="view hidden">
